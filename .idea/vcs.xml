@@ -4,5 +4,6 @@
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/MavenExample/Timisoaraacm" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/MavenExample/timisoaraaccomodation" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/TA" vcs="Git" />
   </component>
 </project>
