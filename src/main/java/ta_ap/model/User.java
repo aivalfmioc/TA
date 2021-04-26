@@ -1,6 +1,5 @@
 package ta_ap.model;
 
-
 public class User {
 
     private String username;
