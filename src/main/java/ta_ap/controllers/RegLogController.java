@@ -11,6 +11,7 @@ import ta_ap.exceptions.UsernameAlreadyExistsException;
 import ta_ap.services.UserService;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class RegLogController {
 
@@ -23,7 +24,7 @@ public class RegLogController {
     @FXML
     private TextField usernameField;
     @FXML
-    private ChoiceBox role;
+    private ChoiceBox<String> role;
 
     @FXML
     public void initialize() {
@@ -33,9 +34,9 @@ public class RegLogController {
     public void handleRegisterAction() {
         try {
 
-            UserService.addUser(usernameField.getText(), passwordField.getText(), (String) role.getValue());
+            UserService.addUser(usernameField.getText(), passwordField.getText(), role.getValue());
 
-            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("register.fxml")));
             registrationMessage.setText("Account created successfully!");
         } catch (UsernameAlreadyExistsException e) {
             registrationMessage.setText(e.getMessage());
@@ -45,7 +46,7 @@ public class RegLogController {
     }
     public void handleLoginAction() {
         try {
-            UserService.addUser(usernameField.getText(), passwordField.getText(), (String) role.getValue());
+            UserService.addUser(usernameField.getText(), passwordField.getText(), role.getValue());
             loginMessage.setText("Log in successfully!");
 
 //            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
