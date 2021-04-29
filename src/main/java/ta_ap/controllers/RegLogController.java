@@ -1,5 +1,7 @@
 package ta_ap.controllers;
 
+import javafx.embed.swing.JFXPanel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,7 +28,8 @@ public class RegLogController {
     @FXML
     private ChoiceBox<String> role;
 
-    @FXML
+    private JFXPanel btnScene1;
+
     public void initialize() {
         role.getItems().addAll("Costumer", "Landlord");
     }
@@ -44,17 +47,12 @@ public class RegLogController {
             e.printStackTrace();
         }
     }
-    public void handleLoginAction() {
+
+    public void handleLoginAction(ActionEvent e) {
         try {
-            UserService.addUser(usernameField.getText(), passwordField.getText(), role.getValue());
-            loginMessage.setText("Log in successfully!");
-
-//            Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
-            //          Stage window= (Stage) btnScene1.getScene().getWindow();
-            //        window.setScene(new Scene(root,750,300));
-
-        } catch (UsernameAlreadyExistsException e) {
-            loginMessage.setText(e.getMessage());
+            loginMessage.getScene().setRoot(FXMLLoader.load(getClass().getResource("/page1.fxml")));
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 
