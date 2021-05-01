@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import ta_ap.services.UserService;
 
+import java.util.Objects;
+
 public class Main extends Application {
 
     public static void main(String[] args) {
@@ -17,9 +19,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         UserService.loadUsersFromFile();
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("register.fxml")));
         primaryStage.setTitle("TIMISOARA ACCOMMODATION");
-        primaryStage.setScene(new Scene(root, 600, 275));
+        primaryStage.setScene(new Scene(root, 800, 500));
         primaryStage.show();
     }
 }

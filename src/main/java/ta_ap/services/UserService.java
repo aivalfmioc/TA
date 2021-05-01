@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
 import ta_ap.exceptions.CouldNotWriteUsersException;
 import ta_ap.exceptions.UsernameAlreadyExistsException;
+import ta_ap.exceptions.UsernameDoesntExistsException;
 import ta_ap.model.User;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class UserService {
     public static void loadUsersFromFile() throws IOException {
 
         if (!Files.exists(USERS_PATH)) {
-            FileUtils.copyURLToFile(UserService.class.getClassLoader().getResource("users.json"), USERS_PATH.toFile());
+            FileUtils.copyURLToFile(Objects.requireNonNull(UserService.class.getClassLoader().getResource("users.json")), USERS_PATH.toFile());
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -32,6 +33,8 @@ public class UserService {
         users = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<User>>() {
         });
     }
+    //daca exista user throw error --register
+    //daca NU exista user throw error --log in
 
     public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
         checkUserDoesNotAlreadyExist(username);
@@ -45,6 +48,23 @@ public class UserService {
                 throw new UsernameAlreadyExistsException(username);
         }
     }
+
+    private static void checkUserAlreadyExist(String username) throws UsernameDoesntExistsException {
+        boolean find = false;
+        for (User user : users) {
+            if (Objects.equals(username, user.getUsername()))
+            {  find = true;
+               break; }
+        }
+
+       if (!find)
+           throw  new UsernameDoesntExistsException(username);
+
+    }
+
+
+    //daca exista user throw error --register
+    //daca NU exista user throw error --log in
 
     private static void persistUsers() {
         try {
@@ -77,4 +97,9 @@ public class UserService {
     }
 
 
+    public static void checkUser(String username, String password,String role) throws UsernameDoesntExistsException{
+        checkUserAlreadyExist(username);
+        users.add(new User(username, encodePassword(username, password), role));
+        persistUsers();
+    }
 }
