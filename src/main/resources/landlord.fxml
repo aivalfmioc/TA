@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane fx:controller="ta_ap.controllers.Landlord"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <TableView fx:id="tbv_" GridPane.columnIndex="0" GridPane.rowIndex="0" prefWidth="1000">
+        <columns>
+            <TableColumn fx:id="tbc_" text="Photo" prefWidth="200">
+            </TableColumn>
+
+            <TableColumn fx:id="tbcn_" text="Name" prefWidth="200">
+            </TableColumn>
+        </columns>
+
+    </TableView>
+        <TextField fx:id="tf_imageinfo" promptText="Enter URL" GridPane.columnIndex="0" GridPane.rowIndex="1" prefWidth="500"/>
+        <Button fx:id="bt_submit" onAction="#createObj" text="Add image" prefWidth="500" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+</GridPane>

@@ -49,10 +49,10 @@ public class UserService {
         }
     }
 
-    private static void checkUserAlreadyExist(String username) throws UsernameDoesntExistsException {
+    private static void checkUserAlreadyExist(String username, String password) throws UsernameDoesntExistsException {
         boolean find = false;
         for (User user : users) {
-            if (Objects.equals(username, user.getUsername()))
+            if (Objects.equals(username, user.getUsername()) && Objects.equals(encodePassword(username,password),user.getPassword()))
             {  find = true;
                break; }
         }
@@ -98,7 +98,7 @@ public class UserService {
 
 
     public static void checkUser(String username, String password,String role) throws UsernameDoesntExistsException{
-        checkUserAlreadyExist(username);
+        checkUserAlreadyExist(username, password);
         users.add(new User(username, encodePassword(username, password), role));
         persistUsers();
     }

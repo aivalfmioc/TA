@@ -43,14 +43,27 @@ public class RegLogController {
         }
     }
     public void handleLoginAction() {
-        try {
-            UserService.checkUser(usernameField.getText(), passwordField.getText(), role.getValue());
-            loginMessage.getScene().setRoot(FXMLLoader.load(getClass().getResource("/page1.fxml")));
-        } catch (UsernameDoesntExistsException e) {
-            loginMessage.setText(e.getMessage());
-        }catch (IOException e) {
-            e.printStackTrace();
+        if (role.getValue().equals("Costumer")) {
+            try {
+                UserService.checkUser(usernameField.getText(), passwordField.getText(), role.getValue());
+                loginMessage.getScene().setRoot(FXMLLoader.load(getClass().getResource("/costumer.fxml")));
+            } catch (UsernameDoesntExistsException e) {
+                loginMessage.setText(e.getMessage());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
+        else  {
+            try {
+                UserService.checkUser(usernameField.getText(), passwordField.getText(), role.getValue());
+                loginMessage.getScene().setRoot(FXMLLoader.load(getClass().getResource("/landlord.fxml")));
+            } catch (UsernameDoesntExistsException e) {
+                loginMessage.setText(e.getMessage());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
 }
