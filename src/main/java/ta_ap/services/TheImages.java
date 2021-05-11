@@ -7,6 +7,10 @@ public class TheImages {
     public TheImages(String images){
         setImages(images);
     }
+
+    public TheImages() {
+    }
+
     public ImageView getImages(){
         return this.images;
     }
@@ -15,4 +19,5 @@ public class TheImages {
         this.images=new ImageView(anImage);
 
   }
+
 }
