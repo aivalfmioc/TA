@@ -21,7 +21,8 @@ public class Main extends Application {
         UserService.loadUsersFromFile();
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("register.fxml")));
         primaryStage.setTitle("TIMISOARA ACCOMMODATION");
-        primaryStage.setScene(new Scene(root, 800, 500));
+        primaryStage.setScene(new Scene(root, 1000, 640));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }

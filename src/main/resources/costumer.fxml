@@ -1,34 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane fx:id="Filters" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ta_ap.controllers.Filters">
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="Filters" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ta_ap.controllers.Filters">
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="640.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <AnchorPane maxHeight="-Infinity" minHeight="35.0" minWidth="50.0" prefHeight="35.0" prefWidth="160.0">
-      <Button mnemonicParsing="false" onAction="#handleFiltersClick" prefHeight="40.0" prefWidth="598.0" text="Filters" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Button mnemonicParsing="false" onAction="#handleFiltersClick" prefHeight="35.0" prefWidth="998.0" text="Filters" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
    </AnchorPane>
 
    <HBox prefHeight="100.0" prefWidth="200.0">
-      <Pane prefHeight="200.0" prefWidth="200.0">
-         <ImageView fitHeight="175.0" fitWidth="200.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <Pane prefHeight="640.0" prefWidth="331.0">
+         <ImageView fitHeight="227.0" fitWidth="331.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@catel1.jpg" />
          </ImageView>
-         <Label layoutX="58.0" layoutY="243.0" text="Un catel frumos" />
+         <Label layoutX="14.0" layoutY="290.0" text="Un catel frumos" />
       </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0">
-         <ImageView fitHeight="150.0" fitWidth="200.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+      <Pane prefHeight="640.0" prefWidth="331.0">
+         <ImageView fitHeight="210.0" fitWidth="331.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@catel2.jpg" />
          </ImageView>
-         <Label layoutX="58.0" layoutY="244.0" text="Alt catel frumos" />
+         <Label layoutX="14.0" layoutY="290.0" text="Alt catel frumos" />
       </Pane>
-      <Pane prefHeight="200.0" prefWidth="200.0">
-         <ImageView fitHeight="158.0" fitWidth="200.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+      <Pane prefHeight="640.0" prefWidth="331.0">
+         <ImageView fitHeight="189.0" fitWidth="331.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@catel3.jpg" />
          </ImageView>
-         <Label layoutX="39.0" layoutY="250.0" text="Mai multi catei frumosi" />
-            <ScrollBar layoutX="190.0" layoutY="-13.0" orientation="VERTICAL" />
+         <Label layoutX="14.0" layoutY="290.0" text="Mai multi catei frumosi" />
       </Pane>
    </HBox>
 </SplitPane>
