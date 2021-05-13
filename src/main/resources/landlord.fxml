@@ -5,13 +5,15 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ta_ap.controllers.Landlord">
+<GridPane alignment="center" hgap="10" prefHeight="640.0" prefWidth="1004.0" style="-fx-background-color: #ffffff;" vgap="10" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ta_ap.controllers.Landlord">
 <!--    <TableView fx:id="tbv2_" prefWidth="1000" GridPane.columnIndex="0" GridPane.rowIndex="0">-->
-    <TableView fx:id="tbv_" GridPane.columnIndex="0" GridPane.rowIndex="0">
+    <TableView fx:id="tbv_" prefHeight="400.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="0" GridPane.rowIndex="0">
         <columns>
             <TableColumn fx:id="tbc_" prefWidth="500.0" text="Photo">
             </TableColumn>
@@ -23,23 +25,50 @@
 
     </TableView>
 <!--    </TableView>-->
-    <TextField fx:id="tf_imageinfo" prefWidth="500.0" promptText="Enter URL" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-    <Button fx:id="bt_submit" onAction="#createObj" prefWidth="500.0" text="Add image" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+    <TextField fx:id="tf_imageinfo" promptText="Enter URL" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <Button fx:id="bt_submit" onAction="#createObj" prefHeight="41.0" prefWidth="250.0" style="-fx-background-color: #3da3b3;" text="Add image" textFill="WHITE" GridPane.columnIndex="0" GridPane.rowIndex="2" />
     <TextField fx:id="tf_description" promptText="Enter Description" GridPane.rowIndex="3" />
-    <Button fx:id="bt_description" onAction="#add_description" prefWidth="500.0" text="Add Description" GridPane.rowIndex="4" />
-    <TextField fx:id="tf_phone" promptText="Enter Phone Number" GridPane.rowIndex="5" />
-    <Button fx:id="bt_phone" onAction="#btadd_phone" prefWidth="500.0" text="Add Phone Number" GridPane.rowIndex="6" />
+    <TextField fx:id="tf_phone" prefHeight="25.0" prefWidth="310.0" promptText="Enter Phone Number" GridPane.rowIndex="5" />
+    <Button fx:id="bt_phone" onAction="#btadd_phone" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #3da3b3;" text="Add Phone Number" textFill="WHITE" GridPane.rowIndex="6">
+      <GridPane.margin>
+         <Insets />
+      </GridPane.margin></Button>
+   <Button fx:id="bt_description1" onAction="#add_description" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #3da3b3;" text="Add Description" textFill="WHITE" GridPane.rowIndex="4" />
+   <ImageView fitHeight="40.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="2">
+      <GridPane.margin>
+         <Insets left="260.0" />
+      </GridPane.margin>
+      <image>
+         <Image url="@dslr-clipart-polaroid-camera-180159.png" />
+      </image>
+   </ImageView>
+   <ImageView fitHeight="40.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="4">
+      <GridPane.margin>
+         <Insets left="260.0" />
+      </GridPane.margin>
+      <image>
+         <Image url="@PikPng.com_list-icon-png_2627482.png" />
+      </image>
+   </ImageView>
+   <ImageView fitHeight="40.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="6">
+      <GridPane.margin>
+         <Insets left="260.0" />
+      </GridPane.margin>
+      <image>
+         <Image url="@toppng.com-telefono-phone-clipart-662x878.png" />
+      </image>
+   </ImageView>
     <columnConstraints>
         <ColumnConstraints />
     </columnConstraints>
     <rowConstraints>
         <RowConstraints />
         <RowConstraints />
-        <RowConstraints />
+        <RowConstraints prefHeight="50.0" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints minHeight="10.0" prefHeight="50.0" />
         <RowConstraints minHeight="10.0" prefHeight="30.0" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" />
-        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+        <RowConstraints minHeight="10.0" prefHeight="50.0" />
     </rowConstraints>
    <padding>
       <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />

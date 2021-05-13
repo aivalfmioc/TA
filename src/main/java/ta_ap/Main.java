@@ -22,7 +22,6 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("register.fxml")));
         primaryStage.setTitle("TIMISOARA ACCOMMODATION");
         primaryStage.setScene(new Scene(root, 1000, 640));
-        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }
