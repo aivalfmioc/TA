@@ -14,6 +14,7 @@ import ta_ap.services.DescriptionA;
 import ta_ap.services.TheImages;
 
 import javax.swing.text.html.ImageView;
+import java.io.*;
 
 public class Landlord {
     @FXML
@@ -60,9 +61,16 @@ public class Landlord {
     public void addtocollection2(DescriptionA des){
         observabs.add(des);
     }
-    public void add_description(ActionEvent actionEvent) {
+    public void add_description(ActionEvent actionEvent) throws IOException {
         DescriptionA d=new DescriptionA(tf_description.getText());
+
+        File file1= new File("Description.txt");
+        FileWriter fw= new FileWriter(file1, true);
+        PrintWriter pw=new PrintWriter(fw);
+        pw.write(tf_description.getText() + "\n");
+        pw.close();
         addtocollection2(d);
+
     }
 
     public void btadd_phone(ActionEvent actionEvent) {
