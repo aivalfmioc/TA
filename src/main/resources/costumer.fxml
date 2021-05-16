@@ -4,10 +4,10 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="501.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ta_ap.controllers.Costumer">
+<AnchorPane id="AnchorPane" prefHeight="501.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ta_ap.controllers.Costumer">
    <children>
-      <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <TableView fx:id="tableview" layoutX="19.0" layoutY="137.0" prefHeight="309.0" prefWidth="687.0">
+      <Label fx:id="label" layoutX="126" layoutY="150" minHeight="126" minWidth="69" />
+      <TableView fx:id="tableview" layoutX="19.0" layoutY="307.0" prefHeight="409.0" prefWidth="780.0">
          <columns>
 
             <TableColumn fx:id="id" prefWidth="85.0" text=" ID" />
@@ -24,7 +24,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Pane layoutY="2.0" prefHeight="51.0" prefWidth="725.0" style="-fx-background-color: #228B22;">
+      <Pane layoutX="59.0" prefHeight="51.0" prefWidth="725.0" style="-fx-background-color: #228B22;">
          <children>
             <Label layoutX="17.0" layoutY="8.0" text="Your new adventure starts here!" textFill="WHITE">
                <font>
@@ -34,5 +34,6 @@
          </children>
       </Pane>
       <Pane layoutY="53.0" prefHeight="5.0" prefWidth="725.0" style="-fx-background-color: #ECF142;" />
+      <Button fx:id="backbutton" layoutY="13.0" mnemonicParsing="false" onAction="#goBack" prefHeight="36.0" prefWidth="52.0" text="Back" />
    </children>
 </AnchorPane>
