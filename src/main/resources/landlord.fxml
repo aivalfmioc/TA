@@ -29,7 +29,7 @@
       </GridPane.margin></Button>
    <TextField fx:id="name" promptText="Enter Name" GridPane.rowIndex="2" />
    <TextField fx:id="pets" promptText="Pets allowed?" GridPane.rowIndex="4" />
-   <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="258.0" text="Delete" GridPane.rowIndex="8" />
+   <Button fx:id="delete" onAction="#deleteRow"  prefHeight="26.0" prefWidth="258.0" text="Delete" GridPane.rowIndex="8" />
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
