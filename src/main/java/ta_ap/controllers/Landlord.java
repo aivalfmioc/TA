@@ -5,77 +5,47 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ta_ap.services.DescriptionA;
+import ta_ap.services.Input;
 import ta_ap.services.TheImages;
 
 import javax.swing.text.html.ImageView;
 import java.io.*;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class Landlord {
-    @FXML
-    public TableView<TheImages> tbv_;
-    @FXML
-    public TableColumn<TheImages, ImageView> tbc_;
-    @FXML
-    public TableColumn<DescriptionA,String> tbcn_;
-    @FXML
-    public TextField tf_imageinfo;
-    @FXML
-    public TextField tf_description;
-    @FXML
-    public TextField tf_phone;
-    @FXML
-    public TableColumn tbcp_;
-    @FXML
-    Button bt_phone;
-    @FXML
-    Button bt_submit;
-    @FXML
-    Button bt_description;
+public class Landlord implements Initializable {
+    public TextField id;
+    public TableView<Input> tableview;
+    public TableColumn<Input,String> idc;
+    public TableColumn<Input,String> namec;
+    public TableColumn<Input,String> descriptionc;
+    public TableColumn<Input,String> petsc;
+    public TableColumn<Input,String> pricec;
+    public TextField description;
+    public TextField price;
+    public Button add;
+    public TextField name;
+    public TextField pets;
 
-    ObservableList<TheImages> observabs= FXCollections.observableArrayList();
-  //   ObservableList<DescriptionA> observabs2= FXCollections.observableArrayList();
-    PropertyValueFactory<TheImages,ImageView> propval= new PropertyValueFactory<>("images");
-    PropertyValueFactory<DescriptionA,String> propval2= new PropertyValueFactory<>("description");
-    public void initialize(){
-        tbv_.setItems(observabs);
-        tbv_.setPlaceholder(new javafx.scene.control.Label("newlabel"));
-        tbc_.setCellValueFactory(propval);
-        tbcn_.setCellValueFactory(propval2);
-
-       //bt_submit.setOnAction;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+          idc.setCellValueFactory(new PropertyValueFactory<>("ID"));
+          namec.setCellValueFactory(new PropertyValueFactory<>("Name"));
+          descriptionc.setCellValueFactory(new PropertyValueFactory<>("Description"));
+          petsc.setCellValueFactory(new PropertyValueFactory<>("Pets"));
+          pricec.setCellValueFactory(new PropertyValueFactory<>("Price"));
+    }
+    public void addtoTable(ActionEvent actionEvent) {
+        Input acc1= new Input(id.getText(),name.getText(),description.getText(),pets.getText(),price.getText());
+        tableview.getItems().add(acc1);
     }
 
-    public void addtocollection(TheImages imgs){
-        observabs.add(imgs);
-    }
-    public void createObj(javafx.event.ActionEvent actionEvent) {
-        TheImages imgs= new TheImages(tf_imageinfo.getText());
-        addtocollection(imgs);
-    }
-    public void addtocollection2(DescriptionA des){
-        observabs.add(des);
-    }
-    public void add_description(ActionEvent actionEvent) throws IOException {
-        DescriptionA d=new DescriptionA(tf_description.getText());
 
-        File file1= new File("Description.txt");
-        FileWriter fw= new FileWriter(file1, true);
-        PrintWriter pw=new PrintWriter(fw);
-        pw.write(tf_description.getText() + "\n");
-        pw.close();
-        addtocollection2(d);
-
-    }
-
-    public void btadd_phone(ActionEvent actionEvent) {
-
-        DescriptionA d=new DescriptionA(tf_phone.getText());
-        addtocollection2(d);
-    }
 }
