@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import ta_ap.services.DescriptionA;
 import ta_ap.services.Input;
 import ta_ap.services.TheImages;
@@ -41,6 +42,12 @@ public class Landlord implements Initializable {
           descriptionc.setCellValueFactory(new PropertyValueFactory<>("Description"));
           petsc.setCellValueFactory(new PropertyValueFactory<>("Pets"));
           pricec.setCellValueFactory(new PropertyValueFactory<>("Price"));
+          tableview.setEditable(true);
+          idc.setCellFactory(TextFieldTableCell.forTableColumn());
+          namec.setCellFactory(TextFieldTableCell.forTableColumn());
+          descriptionc.setCellFactory(TextFieldTableCell.forTableColumn());
+          petsc.setCellFactory(TextFieldTableCell.forTableColumn());
+          pricec.setCellFactory(TextFieldTableCell.forTableColumn());
     }
     public void addtoTable(ActionEvent actionEvent) {
         Input acc1= new Input(id.getText(),name.getText(),description.getText(),pets.getText(),price.getText());
