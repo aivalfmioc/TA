@@ -1,39 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="Filters" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ta_ap.controllers.Filters">
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="640.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <AnchorPane maxHeight="-Infinity" minHeight="35.0" minWidth="50.0" prefHeight="35.0" prefWidth="160.0">
-      <Button mnemonicParsing="false" onAction="#handleFiltersClick" prefHeight="35.0" prefWidth="998.0" text="Filters" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-   </AnchorPane>
+<AnchorPane id="AnchorPane" prefHeight="501.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ta_ap.controllers.Costumer">
+   <children>
+      <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <TableView fx:id="tableview" layoutX="19.0" layoutY="137.0" prefHeight="309.0" prefWidth="687.0">
+         <columns>
 
-   <HBox prefHeight="100.0" prefWidth="200.0">
-      <Pane prefHeight="640.0" prefWidth="331.0">
-         <ImageView fitHeight="227.0" fitWidth="331.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@catel1.jpg" />
-         </ImageView>
-         <Label layoutX="14.0" layoutY="290.0" text="Un catel frumos" />
+            <TableColumn fx:id="id" prefWidth="85.0" text=" ID" />
+            <TableColumn fx:id="empName" prefWidth="157.0" text=" Name" />
+            <TableColumn fx:id="empEmail" prefWidth="167.0" text="Description" />
+            <TableColumn fx:id="department" prefWidth="155.0" text="Pets Allowed" />
+            <TableColumn fx:id="salary" prefWidth="114.0" text="Price/night" />
+            <TableColumn fx:id="action" prefWidth="114.0" text="Reserve" />
+         </columns>
+      </TableView>
+      <TextField fx:id="filterField" layoutX="161.0" layoutY="89.0" prefHeight="25.0" prefWidth="348.0" style="-fx-background-color: #E5E7E9;" />
+      <Label layoutX="22.0" layoutY="92.0" text="Search with Love">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Pane layoutY="2.0" prefHeight="51.0" prefWidth="725.0" style="-fx-background-color: #228B22;">
+         <children>
+            <Label layoutX="17.0" layoutY="8.0" text="Your new adventure starts here!" textFill="WHITE">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="25.0" />
+               </font>
+            </Label>
+         </children>
       </Pane>
-      <Pane prefHeight="640.0" prefWidth="331.0">
-         <ImageView fitHeight="210.0" fitWidth="331.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@catel2.jpg" />
-         </ImageView>
-         <Label layoutX="14.0" layoutY="290.0" text="Alt catel frumos" />
-      </Pane>
-      <Pane prefHeight="640.0" prefWidth="331.0">
-         <ImageView fitHeight="189.0" fitWidth="331.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@catel3.jpg" />
-         </ImageView>
-         <Label layoutX="14.0" layoutY="290.0" text="Mai multi catei frumosi" />
-      </Pane>
-   </HBox>
-</SplitPane>
+      <Pane layoutY="53.0" prefHeight="5.0" prefWidth="725.0" style="-fx-background-color: #ECF142;" />
+   </children>
 </AnchorPane>
