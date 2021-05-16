@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import ta_ap.services.UserService;
 
@@ -19,6 +20,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         UserService.loadUsersFromFile();
+        primaryStage.getIcons().add(new Image("https://icons.iconarchive.com/icons/wikipedia/flags/1024/RO-Romania-Flag-icon.png"));
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("register.fxml")));
         primaryStage.setTitle("TIMISOARA ACCOMMODATION");
         primaryStage.setScene(new Scene(root, 1000, 640));
