@@ -4,47 +4,59 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.control.Button;
 
 public class Input {
-    SimpleStringProperty id;
-    SimpleStringProperty name;
-    SimpleStringProperty description;
-    SimpleStringProperty pets;
-    SimpleStringProperty price;
+    private String id;
+    private String name;
+    private String description;
+    private String pets;
+    private String price;
+    public Input(){
 
+    }
     public Input(String id, String name, String description, String pets, String price){
-        this.id=new SimpleStringProperty(id);
-        this.name=new SimpleStringProperty(name);
-        this.description=new SimpleStringProperty(description);
-        this.pets=new SimpleStringProperty(pets);
-        this.price=new SimpleStringProperty(price);
+        this.id=id;
+        this.name=name;
+        this.description=description;
+        this.pets=pets;
+        this.price=price;
     }
-    public String getID(){
-        return id.get();
-    }
-    public void setId(String id) {
-        this.id.set(id);
-    }
-    public String getName(){
-        return name.get();
-    }
-    public void setName(String name) {
-        this.name.set(name);
-    }
+
     public String getDescription() {
-        return description.get();
+        return description;
     }
+
     public void setDescription(String description) {
-        this.description.set(description);
+        this.description = description;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getPets() {
-        return pets.get();
+        return pets;
     }
+
     public void setPets(String pets) {
-        this.pets.set(pets);
+        this.pets = pets;
     }
+
+    public String getPrice() {
+        return price;
+    }
+
     public void setPrice(String price) {
-        this.price.set(price);
-    }
-    public String getPrice(){
-        return price.get();
+        this.price = price;
     }
 }

@@ -18,7 +18,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
         UserService.loadUsersFromFile();
         primaryStage.getIcons().add(new Image("https://icons.iconarchive.com/icons/wikipedia/flags/1024/RO-Romania-Flag-icon.png"));
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource("register.fxml")));

@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import ta_ap.exceptions.UsernameAlreadyExistsException;
 import ta_ap.exceptions.UsernameDoesntExistsException;
+import ta_ap.exceptions.WrongUsernamePasswordException;
 import ta_ap.services.UserService;
 
 import java.io.IOException;
@@ -16,6 +17,7 @@ import java.util.Objects;
 
 public class RegLogController {
 
+    private static String usernameL;
     @FXML
     private Text loginMessage;
     @FXML
@@ -43,27 +45,30 @@ public class RegLogController {
         }
     }
     public void handleLoginAction() {
-        if (role.getValue().equals("Costumer")) {
-            try {
-                UserService.checkUser(usernameField.getText(), passwordField.getText(), role.getValue());
-                loginMessage.getScene().setRoot(FXMLLoader.load(getClass().getResource("/costumer.fxml")));
-            } catch (UsernameDoesntExistsException e) {
-                loginMessage.setText(e.getMessage());
-            } catch (IOException e) {
-                e.printStackTrace();
+        try {
+            UserService.checkUsernameAndPassword(usernameField.getText(),passwordField.getText());
+            if (role.getValue().equals("Costumer")) {
+                try {
+                    usernameL=usernameField.getText();
+                    loginMessage.getScene().setRoot(FXMLLoader.load(getClass().getResource("/costumer_homepage.fxml")));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else if (role.getValue().equals("Landlord")) {
+                try {
+                    usernameL=usernameField.getText();
+                    loginMessage.getScene().setRoot(FXMLLoader.load(getClass().getResource("/landlord.fxml")));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
+        }catch (WrongUsernamePasswordException e){
+            loginMessage.setText(e.getMessage());
         }
-        else  {
-            try {
-                UserService.checkUser(usernameField.getText(), passwordField.getText(), role.getValue());
-                loginMessage.getScene().setRoot(FXMLLoader.load(getClass().getResource("/landlord.fxml")));
-            } catch (UsernameDoesntExistsException e) {
-                loginMessage.setText(e.getMessage());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
     }
 
+
+    public static String getUsernameL() {
+        return usernameL;
+    }
 }

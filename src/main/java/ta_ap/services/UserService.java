@@ -6,6 +6,7 @@ import org.apache.commons.io.FileUtils;
 import ta_ap.exceptions.CouldNotWriteUsersException;
 import ta_ap.exceptions.UsernameAlreadyExistsException;
 import ta_ap.exceptions.UsernameDoesntExistsException;
+import ta_ap.exceptions.WrongUsernamePasswordException;
 import ta_ap.model.User;
 
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -33,9 +35,6 @@ public class UserService {
         users = objectMapper.readValue(USERS_PATH.toFile(), new TypeReference<List<User>>() {
         });
     }
-    //daca exista user throw error --register
-    //daca NU exista user throw error --log in
-
     public static void addUser(String username, String password, String role) throws UsernameAlreadyExistsException {
         checkUserDoesNotAlreadyExist(username);
         users.add(new User(username, encodePassword(username, password), role));
@@ -48,7 +47,35 @@ public class UserService {
                 throw new UsernameAlreadyExistsException(username);
         }
     }
+    public static void saveTable(String landlord,List<Input> schedule){
+        for (User user : users) {
+           if (Objects.equals(landlord, user.getUsername()))
+           {
+             //  if(user.getSchedule().size()>0) user.getSchedule().add();
 
+                user.setSchedule(schedule);
+           }
+        }
+        persistUsers();
+    }
+    public static int manyTable(String landlord){
+        for (User user : users) {
+            if (Objects.equals(landlord, user.getUsername()))
+            {
+                if(user.getSchedule().size()>0) return 1;
+            }
+        }
+        return 0;
+    }
+    public static List<Input> seeTable(String landlord){
+        for (User user : users) {
+            if (Objects.equals(landlord, user.getUsername()))
+            {
+                return user.getSchedule();
+            }
+        }
+        return Collections.emptyList();
+    }
     private static void checkUserAlreadyExist(String username, String password) throws UsernameDoesntExistsException {
         boolean find = false;
         for (User user : users) {
@@ -61,10 +88,6 @@ public class UserService {
            throw  new UsernameDoesntExistsException(username);
 
     }
-
-
-    //daca exista user throw error --register
-    //daca NU exista user throw error --log in
 
     private static void persistUsers() {
         try {
@@ -95,11 +118,33 @@ public class UserService {
         }
         return md;
     }
-
-
     public static void checkUser(String username, String password,String role) throws UsernameDoesntExistsException{
         checkUserAlreadyExist(username, password);
         users.add(new User(username, encodePassword(username, password), role));
         persistUsers();
     }
+
+    public static void checkUsernameAndPassword(String username, String password) throws WrongUsernamePasswordException {
+        boolean find = false;
+        for (User user : users) {
+            if (Objects.equals(username, user.getUsername()) && Objects.equals(encodePassword(username,password),user.getPassword()))
+            {  find = true;
+                break; }
+        }
+
+        if (!find)
+            throw  new WrongUsernamePasswordException(username,password);
+    }
+   
+    public static List<Input> seeCostumer(String usernameL){
+        for (User user : users) {
+            if (Objects.equals("Landlord", user.getRole()))
+            {
+                 return user.getSchedule();
+
+            }
+        }
+        return Collections.emptyList();
+    }
+
 }
