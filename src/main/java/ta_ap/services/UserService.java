@@ -19,8 +19,8 @@ import java.util.Objects;
 
 public class UserService {
 
-    private static List<User> users;
-    private static final Path USERS_PATH = FileSystemService.getPathToFile("config", "users.json");
+    public static List<User> users;
+    public static final Path USERS_PATH = FileSystemService.getPathToFile("config", "users.json");
 
     public static void loadUsersFromFile() throws IOException {
 
@@ -42,7 +42,7 @@ public class UserService {
         persistUsers();
     }
 
-    private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
+    public static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
         for (User user : users) {
             if (Objects.equals(username, user.getUsername()))
                 throw new UsernameAlreadyExistsException(username);
@@ -75,7 +75,7 @@ public class UserService {
         }
     }
 
-    private static String encodePassword(String salt, String password) {
+    public static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
@@ -101,5 +101,8 @@ public class UserService {
         checkUserAlreadyExist(username, password);
         users.add(new User(username, encodePassword(username, password), role));
         persistUsers();
+    }
+    public static List<User> getUsers() {
+        return users;
     }
 }

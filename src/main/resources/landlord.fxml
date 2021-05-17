@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="center" hgap="10" prefHeight="640.0" prefWidth="1004.0" style="-fx-background-color: #ffffff;" vgap="10" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ta_ap.controllers.Landlord">
+<GridPane alignment="center" hgap="10" prefHeight="536.0" prefWidth="1004.0" style="-fx-background-color: #ffffff;" vgap="10" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ta_ap.controllers.Landlord">
 <!--    <TableView fx:id="tbv2_" prefWidth="1000" GridPane.columnIndex="0" GridPane.rowIndex="0">-->
     <TableView fx:id="tableview" prefHeight="278.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="0" GridPane.rowIndex="0">
         <columns>
@@ -29,7 +34,10 @@
       </GridPane.margin></Button>
    <TextField fx:id="name" promptText="Enter Name" GridPane.rowIndex="2" />
    <TextField fx:id="pets" promptText="Pets allowed?" GridPane.rowIndex="4" />
-   <Button fx:id="delete" onAction="#deleteRow"  prefHeight="26.0" prefWidth="258.0" text="Delete" GridPane.rowIndex="8" />
+   <Button fx:id="delete" onAction="#deleteRow" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #3da3b3;" text="DELETE" textFill="WHITE" GridPane.rowIndex="6">
+      <GridPane.margin>
+         <Insets left="750.0" />
+      </GridPane.margin></Button>
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
