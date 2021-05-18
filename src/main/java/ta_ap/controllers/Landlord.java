@@ -37,7 +37,7 @@ public class Landlord implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
           tableview.getItems().addAll(UserService.seeTable(RegLogController.getUsernameL()));
-          idc.setCellValueFactory(new PropertyValueFactory<>("ID"));
+          idc.setCellValueFactory(new PropertyValueFactory<>("Id"));
           namec.setCellValueFactory(new PropertyValueFactory<>("Name"));
           descriptionc.setCellValueFactory(new PropertyValueFactory<>("Description"));
           petsc.setCellValueFactory(new PropertyValueFactory<>("Pets"));
@@ -75,6 +75,7 @@ public class Landlord implements Initializable {
         sellectedRows=tableview.getSelectionModel().getSelectedItems();
         for(Input data: sellectedRows){
             everything.remove(data);
+            UserService.saveTable(RegLogController.getUsernameL(),tableview.getItems());
         }
     }
 

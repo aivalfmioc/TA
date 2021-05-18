@@ -3,6 +3,7 @@ package ta_ap.services;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
+import ta_ap.controllers.RegLogController;
 import ta_ap.exceptions.CouldNotWriteUsersException;
 import ta_ap.exceptions.UsernameAlreadyExistsException;
 import ta_ap.exceptions.UsernameDoesntExistsException;
@@ -15,15 +16,22 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
 public class UserService {
 
-    private static List<User> users;
-    private static final Path USERS_PATH = FileSystemService.getPathToFile("config", "users.json");
-
+    public static final Path USERS_PATH = FileSystemService.getPathToFile("config","users.json");
+    public static List<User> users;
+    public static User getUser(){
+        for(User user:users){
+            if(user.getUsername().equals(RegLogController.getUsernameL()))
+                return user;
+        }
+        return null;
+    }
     public static void loadUsersFromFile() throws IOException {
 
         if (!Files.exists(USERS_PATH)) {
@@ -41,7 +49,7 @@ public class UserService {
         persistUsers();
     }
 
-    private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
+    public static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
         for (User user : users) {
             if (Objects.equals(username, user.getUsername()))
                 throw new UsernameAlreadyExistsException(username);
@@ -98,7 +106,7 @@ public class UserService {
         }
     }
 
-    private static String encodePassword(String salt, String password) {
+    public static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
@@ -136,15 +144,38 @@ public class UserService {
             throw  new WrongUsernamePasswordException(username,password);
     }
    
-    public static List<Input> seeCostumer(String usernameL){
+    public static List<Input> seeCostumer(){
+        List<Input> listcostumer=new ArrayList<>();
         for (User user : users) {
+
             if (Objects.equals("Landlord", user.getRole()))
             {
-                 return user.getSchedule();
+                 listcostumer.addAll(user.getSchedule());
 
             }
         }
-        return Collections.emptyList();
+        return listcostumer;
+    }
+
+    public static boolean checkExistsAccommodation(String text) {
+        for (User user : users) {
+            if (user.getRole().equals("Landlord")) {
+                for (Input input : user.getSchedule()) {
+                    if (input.getName().equals(text)){
+                        addAccommodation(text);
+                        return true;}
+                }
+            }
+        }
+            return false;
+        }
+
+    private static void addAccommodation(String text) {
+         for(User user: users){
+             if(user.getUsername().equals(RegLogController.getUsernameL()))
+                 user.getReservations().add(text);
+         }
+         persistUsers();
     }
 
 }

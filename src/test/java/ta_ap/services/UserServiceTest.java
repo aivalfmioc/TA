@@ -22,7 +22,7 @@ public class UserServiceTest {
 
     @BeforeClass
     public static void setupClass() {
-        FileSystemService.APPLICATION_FOLDER = ".test-registration-example";
+        FileSystemService.APPLICATION_FOLDER = ".ta_ap";
         FileSystemService.getPathToFile();
     }
 

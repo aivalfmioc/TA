@@ -11,6 +11,7 @@ public class User {
     private String role;
 
     private List<Input> schedule=new ArrayList<>();
+    private List<String> reservations=new ArrayList<>();
     public User(){
 
     }
@@ -90,7 +91,18 @@ public class User {
     public List<Input> getSchedule() {
         return schedule;
     }
+   // public String<Input> getName(){
+
+  //  }
     public void setSchedule(List<Input> schedule) {
         this.schedule=schedule;
+    }
+
+    public List<String> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<String> reservations) {
+        this.reservations = reservations;
     }
 }
