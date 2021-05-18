@@ -35,8 +35,6 @@ public class Input {
     }
 
     public void setName(String name) {
-
-        System.out.println("b");
         this.name = name;
     }
 
