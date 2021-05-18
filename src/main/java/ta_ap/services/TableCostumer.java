@@ -11,16 +11,15 @@ public class TableCostumer {
     private  final SimpleStringProperty email;
     private  final SimpleStringProperty department;
     private  final SimpleIntegerProperty salary;
-    private Button button;
 
-    public TableCostumer(Integer id, String firstname, String mail, String department, Integer salary, javafx.scene.control.Button button)
+
+    public TableCostumer(Integer id, String firstname, String mail, String department, Integer salary)
     {
         this.ID = new SimpleIntegerProperty(id);
         this.firstName = new SimpleStringProperty(firstname);
         this.email =  new SimpleStringProperty(mail);
         this.department =  new SimpleStringProperty(department);
         this.salary =  new SimpleIntegerProperty(salary);
-        this.button=new Button("Reserve");
     }
 
 
@@ -72,13 +71,5 @@ public class TableCostumer {
         this.salary.set(salary);
     }
 
-
-    public Button getButton() {
-        return button;
-    }
-
-    public void setButton(Button button) {
-        this.button = button;
-    }
 }
 

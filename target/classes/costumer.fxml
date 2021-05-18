@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="501.0" prefWidth="725.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ta_ap.controllers.Costumer">
+   <Label fx:id="label" layoutX="126" layoutY="150" minHeight="126" minWidth="69" />
+   <TableView fx:id="tableviewcostumer" layoutX="22.0" layoutY="221.0" prefHeight="409.0" prefWidth="780.0">
+      <columns>
+
+         <TableColumn fx:id="id" prefWidth="85.0" text=" ID" />
+         <TableColumn fx:id="empName" prefWidth="157.0" text=" Name" />
+         <TableColumn fx:id="empEmail" prefWidth="167.0" text="Description" />
+         <TableColumn fx:id="department" prefWidth="168.20001220703125" text="Pets Allowed" />
+         <TableColumn fx:id="salary" prefWidth="200.5999755859375" text="Price/night" />
+      </columns>
+   </TableView>
+   <TextField fx:id="filterField" layoutX="161.0" layoutY="89.0" prefHeight="25.0" prefWidth="348.0" style="-fx-background-color: #E5E7E9;" />
+   <Label layoutX="22.0" layoutY="92.0" text="Search with Love">
+      <font>
+         <Font name="System Bold" size="14.0" />
+      </font>
+   </Label>
+   <Pane layoutX="59.0" prefHeight="51.0" prefWidth="725.0" style="-fx-background-color: #228B22;">
+      <Label layoutX="17.0" layoutY="8.0" text="Your new adventure starts here!" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="25.0" />
+         </font>
+      </Label>
+   </Pane>
+   <Pane layoutY="53.0" prefHeight="5.0" prefWidth="725.0" style="-fx-background-color: #ECF142;" />
+   <Button fx:id="backbutton" layoutY="-2.0" mnemonicParsing="false" onAction="#goBack" prefHeight="51.0" prefWidth="58.0" text="Back" />
+   <Button fx:id="reserve" layoutX="623.0" layoutY="89.0" mnemonicParsing="false" onAction="#reserveAction" text="ta_ap.controllers.Costumer.Reserve" />
+</AnchorPane>

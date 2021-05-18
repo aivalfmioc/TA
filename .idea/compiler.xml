@@ -2,6 +2,15 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
+      <module name="simple-registration-example" target="1.8" />
+      <module name="simple-registration-example.main" target="1.8" />
+      <module name="simple-registration-example.test" target="1.8" />
+      <module name="ta_ap" target="8" />
+      <module name="ta_ap.main" target="1.8" />
+      <module name="ta_ap.test" target="1.8" />
+      <module name="timisoara-acom" target="1.8" />
+      <module name="timisoara-acom.main" target="1.8" />
+      <module name="timisoara-acom.test" target="1.8" />
       <module name="wrapper" target="1.5" />
     </bytecodeTargetLevel>
   </component>

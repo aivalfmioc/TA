@@ -21,4 +21,9 @@ public class CostumerHomepage {
     public void setScene(FXMLLoader scene) {
         this.scene = scene;
     }
+
+    public void gotoReservation(ActionEvent actionEvent) throws IOException {
+
+        button.getScene().setRoot(FXMLLoader.load(getClass().getResource("/acomodations.fxml")));
+    }
 }

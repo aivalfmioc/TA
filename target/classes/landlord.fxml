@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" hgap="10" prefHeight="640.0" prefWidth="1004.0" style="-fx-background-color: #ffffff;" vgap="10" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ta_ap.controllers.Landlord">
+<!--    <TableView fx:id="tbv2_" prefWidth="1000" GridPane.columnIndex="0" GridPane.rowIndex="0">-->
+    <TableView fx:id="tableview" prefHeight="278.0" prefWidth="1000.0" style="-fx-background-color: #ffffff;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <columns>
+         <TableColumn fx:id="idc" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="namec" prefWidth="104.0" text="Name">
+            </TableColumn>
+
+            <TableColumn fx:id="descriptionc" prefWidth="158.0" text="Description">
+            </TableColumn>
+            <TableColumn fx:id="petsc" prefWidth="151.99996948242188" text="Pets Allowed" />
+         <TableColumn fx:id="pricec" prefWidth="75.0" text="Price/Night" />
+        </columns>
+    </TableView>
+<!--    </TableView>-->
+    <TextField fx:id="id" prefHeight="7.0" prefWidth="939.0" promptText="EnterID" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <TextField fx:id="description" promptText="Enter Description" GridPane.rowIndex="3" />
+    <TextField fx:id="price" prefHeight="25.0" prefWidth="310.0" promptText="Enter Price" GridPane.rowIndex="5" />
+    <Button fx:id="add" onAction="#addtoTable" prefHeight="40.0" prefWidth="250.0" style="-fx-background-color: #3da3b3;" text="ADD" textFill="WHITE" GridPane.rowIndex="6">
+      <GridPane.margin>
+         <Insets />
+      </GridPane.margin></Button>
+   <TextField fx:id="name" promptText="Enter Name" GridPane.rowIndex="2" />
+   <TextField fx:id="pets" promptText="Pets allowed?" GridPane.rowIndex="4" />
+   <Button fx:id="delete" onAction="#deleteRow"  prefHeight="26.0" prefWidth="258.0" text="Delete" GridPane.rowIndex="8" />
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+
+</GridPane>

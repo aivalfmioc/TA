@@ -1,57 +1,52 @@
 package ta_ap.controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
-import ta_ap.services.TableCostumer;
+import ta_ap.services.Input;
+import ta_ap.services.UserService;
 
 public class Costumer implements Initializable {
 
+    public Button backbutton;
+    public TableView <Input>tableviewcostumer;
+    public Button reserve;
     @FXML
     private Label label;
     @FXML private TextField filterField;
-    @FXML private TableView<TableCostumer> tableview;
-    @FXML private TableColumn<TableCostumer, String> id;
-    @FXML private TableColumn<TableCostumer, String> empName;
-    @FXML private TableColumn<TableCostumer, String> empEmail;
-    @FXML private TableColumn<TableCostumer, String> department;
-    @FXML private TableColumn<TableCostumer, String> salary;
-    @FXML public TableColumn<TableCostumer, Button>action;
+    @FXML private TableColumn<Input, String> id;
+    @FXML private TableColumn<Input, String> empName;
+    @FXML private TableColumn<Input, String> empEmail;
+    @FXML private TableColumn<Input, String> department;
+    @FXML private TableColumn<Input, String> salary;
 
 
     //observalble list to store data
-    private final ObservableList<TableCostumer> dataList = FXCollections.observableArrayList();
+   private final ObservableList<Input> dataList = FXCollections.observableArrayList();
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        id.setCellValueFactory(new PropertyValueFactory<>("EmpID"));
-        empName.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        empEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        department.setCellValueFactory(new PropertyValueFactory<>("department"));
-        salary.setCellValueFactory(new PropertyValueFactory<>("salary"));
-        action.setCellValueFactory(new PropertyValueFactory<>("reserve"));
-
-        TableCostumer acc1 = new TableCostumer(112, "Pensiunea Ana", "beautifu AEIDIRERNFIRECFNREIFRBTR FVRGVTRG VDVl place", "YES", 30000, new Button());
-        TableCostumer acc2 = new TableCostumer( 115, "Hotel Galaxy", "beautiful place", "YES", 40000, new Button());
-        TableCostumer acc3 = new TableCostumer( 116, "Locanda Del Corso", "beautiful place", "NO", 80000,new Button("a"));
-        TableCostumer acc4 = new TableCostumer(117, "Blueish", "beautiful place", "YES", 80000,new Button("a"));
-
-        dataList.addAll(acc1,acc2, acc3, acc4);
-
-        // Wrap the ObservableList in a FilteredList (initially display all data).
-        FilteredList<TableCostumer> filteredData = new FilteredList<>(dataList, b -> true);
-
+        id.setCellValueFactory(new PropertyValueFactory<Input,String>("ID"));
+        empName.setCellValueFactory(new PropertyValueFactory<Input,String>("Name"));
+        empEmail.setCellValueFactory(new PropertyValueFactory<Input,String>("Description"));
+        department.setCellValueFactory(new PropertyValueFactory<Input,String>("Pets"));
+        salary.setCellValueFactory(new PropertyValueFactory<Input,String>("Price"));
+        tableviewcostumer.getItems().addAll( UserService.seeCostumer(RegLogController.getUsernameL()));
+    }
+    /*
+     // Wrap the ObservableList in a FilteredList (initially display all data).
+       FilteredList<Input> filteredData = new FilteredList<>(dataList, b -> true);
+       filteretData.getText()
         // 2. Set the filter Predicate whenever the filter changes.
         filterField.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(employee -> {
@@ -81,11 +76,21 @@ public class Costumer implements Initializable {
 
         // 4. Bind the SortedList comparator to the TableView comparator.
         // 	  Otherwise, sorting the TableView would have no effect.
-        sortedData.comparatorProperty().bind(tableview.comparatorProperty());
+        sortedData.comparatorProperty().bind(tableviewcostumer.comparatorProperty());
 
         // 5. Add sorted (and filtered) data to the table.
-        tableview.setItems(sortedData);
+        tableviewcostumer.setItems(sortedData);
 
+
+    }
+*/
+    public void goBack(ActionEvent actionEvent) throws IOException {
+        backbutton.getScene().setRoot(FXMLLoader.load(getClass().getResource("/costumer_homepage.fxml")));
+    }
+
+    public void reserveAction(ActionEvent actionEvent) throws IOException {
+
+        backbutton.getScene().setRoot(FXMLLoader.load(getClass().getResource("/reserve.fxml")));
 
     }
 
