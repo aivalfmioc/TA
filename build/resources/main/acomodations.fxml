@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="653.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ta_ap.controllers.Accommodations">
+<AnchorPane prefHeight="653.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ta_ap.controllers.Accommodations">
    <children>
       <ImageView fitHeight="602.0" fitWidth="1003.0" layoutX="1.0" layoutY="51.0" pickOnBounds="true">
          <image>

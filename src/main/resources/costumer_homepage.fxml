@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="641.0" prefWidth="1020.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ta_ap.controllers.CostumerHomepage">
+<AnchorPane prefHeight="641.0" prefWidth="1020.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ta_ap.controllers.CostumerHomepage">
    <children>
       <Button fx:id="button" layoutX="421.0" layoutY="131.0" mnemonicParsing="false" onAction="#gotoViewAcom" prefHeight="43.0" prefWidth="180.0" style="-fx-background-color: #3da3b3 #3da3b3;" text="View Accomodations" textFill="WHITE">
          <font>
