@@ -12,14 +12,6 @@ public class Input {
     public Input(){
 
     }
-    /*
-    public Input(String id, String name, String description, String pets, String price){
-        this.id=id;
-        this.name=name;
-        this.description=description;
-        this.pets=pets;
-        this.price=price;
-    }*/
     public Input(String id, String name, String description, String pets, String price){
         this.id=id;
         this.name=name;
