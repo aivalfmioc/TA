@@ -12,6 +12,14 @@ public class Input {
     public Input(){
 
     }
+    /*
+    public Input(String id, String name, String description, String pets, String price){
+        this.id=id;
+        this.name=name;
+        this.description=description;
+        this.pets=pets;
+        this.price=price;
+    }*/
     public Input(String id, String name, String description, String pets, String price){
         this.id=id;
         this.name=name;
@@ -28,19 +36,15 @@ public class Input {
         this.description = description;
     }
 
-    public String getId() {
-        return id;
-    }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
+
+        System.out.println("b");
         this.name = name;
     }
 
@@ -58,5 +62,13 @@ public class Input {
 
     public void setPrice(String price) {
         this.price = price;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
