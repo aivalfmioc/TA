@@ -1,17 +1,20 @@
 ta_ap/services/Input.java
  ta_ap.services.Input
-ta_ap/controllers/RegLogController.java
- ta_ap.controllers.RegLogController
+ta_ap/controllers/Landlord.java
+ ta_ap.controllers.Landlord
 ta_ap/exceptions/UsernameDoesntExistsException.java
  ta_ap.exceptions.UsernameDoesntExistsException
-ta_ap/controllers/CostumerHomepage.java
- ta_ap.controllers.CostumerHomepage
 ta_ap/exceptions/UsernameAlreadyExistsException.java
  ta_ap.exceptions.UsernameAlreadyExistsException
-ta_ap/services/TableCostumer.java
- ta_ap.services.TableCostumer
+ta_ap/controllers/CostumerHomepage.java
+ ta_ap.controllers.CostumerHomepage
+ta_ap/services/UserService.java
+ ta_ap.services.UserService
+ ta_ap.services.UserService$1
 ta_ap/controllers/Reserve.java
  ta_ap.controllers.Reserve
+ta_ap/controllers/Accommodations.java
+ ta_ap.controllers.Accommodations
 ta_ap/exceptions/WrongUsernamePasswordException.java
  ta_ap.exceptions.WrongUsernamePasswordException
 ta_ap/services/FileSystemService.java
@@ -26,14 +29,11 @@ ta_ap/exceptions/CouldNotWriteUsersException.java
  ta_ap.exceptions.CouldNotWriteUsersException
 ta_ap/model/User.java
  ta_ap.model.User
-ta_ap/controllers/Landlord.java
- ta_ap.controllers.Landlord
 ta_ap/controllers/Costumer.java
  ta_ap.controllers.Costumer
-ta_ap/services/UserService.java
- ta_ap.services.UserService
- ta_ap.services.UserService$1
 ta_ap/Main.java
  ta_ap.Main
-ta_ap/controllers/Accommodations.java
- ta_ap.controllers.Accommodations
+ta_ap/services/TableCostumer.java
+ ta_ap.services.TableCostumer
+ta_ap/controllers/RegLogController.java
+ ta_ap.controllers.RegLogController
