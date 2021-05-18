@@ -21,13 +21,13 @@ public class RegLogController {
     @FXML
     private Text loginMessage;
     @FXML
-    private Text registrationMessage;
+    public Text registrationMessage;
     @FXML
-    private PasswordField passwordField;
+    public PasswordField passwordField;
     @FXML
-    private TextField usernameField;
+    public TextField usernameField;
     @FXML
-    private ChoiceBox<String> role;
+    public ChoiceBox<String> role;
 
     public void initialize() {
         role.getItems().addAll("Costumer", "Landlord");
