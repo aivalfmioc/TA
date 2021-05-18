@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,26 +24,23 @@ public class Costumer implements Initializable {
     private Label label;
     @FXML private TextField filterField;
     @FXML private TableColumn<Input, String> id;
-    @FXML private TableColumn<Input, String> empName;
-    @FXML private TableColumn<Input, String> empEmail;
-    @FXML private TableColumn<Input, String> department;
-    @FXML private TableColumn<Input, String> salary;
+    @FXML private TableColumn<Input, String> name;
+    @FXML public TableColumn<Input,String> description;
+    @FXML public TableColumn<Input,String> pets;
+    @FXML public TableColumn<Input,String> price;
 
-
-    //observalble list to store data
    private final ObservableList<Input> dataList = FXCollections.observableArrayList();
-
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
         id.setCellValueFactory(new PropertyValueFactory<Input,String>("ID"));
-        empName.setCellValueFactory(new PropertyValueFactory<Input,String>("Name"));
-        empEmail.setCellValueFactory(new PropertyValueFactory<Input,String>("Description"));
-        department.setCellValueFactory(new PropertyValueFactory<Input,String>("Pets"));
-        salary.setCellValueFactory(new PropertyValueFactory<Input,String>("Price"));
-        tableviewcostumer.getItems().addAll( UserService.seeCostumer(RegLogController.getUsernameL()));
+        name.setCellValueFactory(new PropertyValueFactory<Input,String>("Name"));
+        description.setCellValueFactory(new PropertyValueFactory<Input,String>("Description"));
+        pets.setCellValueFactory(new PropertyValueFactory<Input,String>("Pets"));
+        price.setCellValueFactory(new PropertyValueFactory<Input,String>("Price"));
+        tableviewcostumer.getItems().addAll(UserService.seeCostumer(RegLogController.getUsernameL()));
     }
+//    FilteredList<Input> filteredData = new FilteredList<>(dataList, b -> true);
     /*
      // Wrap the ObservableList in a FilteredList (initially display all data).
        FilteredList<Input> filteredData = new FilteredList<>(dataList, b -> true);
