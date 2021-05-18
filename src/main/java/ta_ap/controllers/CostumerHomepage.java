@@ -8,6 +8,7 @@ import java.io.IOException;
 
 public class CostumerHomepage {
     public Button button;
+    public Button bt_logout_customer;
     private FXMLLoader scene;
 
     public void gotoViewAcom(ActionEvent actionEvent) throws IOException {
@@ -25,5 +26,9 @@ public class CostumerHomepage {
     public void gotoReservation(ActionEvent actionEvent) throws IOException {
 
         button.getScene().setRoot(FXMLLoader.load(getClass().getResource("/acomodations.fxml")));
+    }
+
+    public void logout_customer(ActionEvent actionEvent) throws IOException {
+        bt_logout_customer.getScene().setRoot(FXMLLoader.load(getClass().getResource("/register.fxml")));
     }
 }

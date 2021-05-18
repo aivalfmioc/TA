@@ -4,6 +4,8 @@ package ta_ap.controllers;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -11,6 +13,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import ta_ap.services.Input;
 import ta_ap.services.UserService;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -28,6 +31,7 @@ public class Landlord implements Initializable {
     public Button add;
     public TextField name;
     public TextField pets;
+    public Button bt_logout_landlord;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -72,5 +76,9 @@ public class Landlord implements Initializable {
         for(Input data: sellectedRows){
             everything.remove(data);
         }
+    }
+
+    public void logout_landlord(ActionEvent actionEvent) throws IOException {
+        bt_logout_landlord.getScene().setRoot(FXMLLoader.load(getClass().getResource("/register.fxml")));
     }
 }
