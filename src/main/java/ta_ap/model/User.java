@@ -90,7 +90,11 @@ public class User {
     public List<Input> getSchedule() {
         return schedule;
     }
+   // public String<Input> getName(){
+
+  //  }
     public void setSchedule(List<Input> schedule) {
         this.schedule=schedule;
     }
+
 }

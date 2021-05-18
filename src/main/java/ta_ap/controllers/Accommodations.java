@@ -10,13 +10,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import jdk.nashorn.internal.parser.JSONParser;
+import ta_ap.model.User;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
+
+import static ta_ap.services.UserService.users;
 
 public class Accommodations  {
     public TextField txtfield;
@@ -24,11 +28,16 @@ public class Accommodations  {
   // public ObservableList<String> names;
     public ListView<String> list;
 
+
     public void addtoListview(ActionEvent actionEvent)  {
       // Object obj=parser.parse(new FileReader("ta_ap"));
        //String firstname=(String) jo.get()
     //    name= FXCollections.observableArrayList();
-        list.getItems().add(txtfield.getText());
+      // for(User user : users)
+        //    if(Objects.equals(txtfield.getText(),user.getName())) {
+          //      user.setName(txtfield.getText());
+                list.getItems().add(txtfield.getText());
+           // }
       // name.setItems(name);
       //  names.add(txtfield.getText());
 

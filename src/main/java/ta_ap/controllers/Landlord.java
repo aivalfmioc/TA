@@ -71,6 +71,7 @@ public class Landlord implements Initializable {
         sellectedRows=tableview.getSelectionModel().getSelectedItems();
         for(Input data: sellectedRows){
             everything.remove(data);
+            UserService.saveTable(RegLogController.getUsernameL(),tableview.getItems());
         }
     }
 }
