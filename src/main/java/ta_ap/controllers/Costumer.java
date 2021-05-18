@@ -33,12 +33,12 @@ public class Costumer implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        id.setCellValueFactory(new PropertyValueFactory<Input,String>("ID"));
+        id.setCellValueFactory(new PropertyValueFactory<Input,String>("Id"));
         name.setCellValueFactory(new PropertyValueFactory<Input,String>("Name"));
         description.setCellValueFactory(new PropertyValueFactory<Input,String>("Description"));
         pets.setCellValueFactory(new PropertyValueFactory<Input,String>("Pets"));
         price.setCellValueFactory(new PropertyValueFactory<Input,String>("Price"));
-        tableviewcostumer.getItems().addAll(UserService.seeCostumer(RegLogController.getUsernameL()));
+        tableviewcostumer.getItems().addAll(UserService.seeCostumer());
     }
 //    FilteredList<Input> filteredData = new FilteredList<>(dataList, b -> true);
     /*
